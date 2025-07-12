@@ -1,7 +1,7 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    
+
     match /users/{userId} {
       allow read: if resource.data.isPublic == true;
       allow write: if request.auth.uid == userId;
@@ -9,6 +9,6 @@ service cloud.firestore {
 
     match /swap_requests/{requestId} {
       allow read, write: if request.auth.uid != null;
-    }
-  }
+    }
+  }
 }
