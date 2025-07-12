@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard | Skill Swap</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+  <div class="flex min-h-screen">
+    <aside class="w-64 bg-white shadow-md">
+      <div class="p-6 text-2xl font-bold text-blue-600">Skill Swap Admin</div>
+      <nav class="mt-6">
+        <ul>
+          <li class="p-4 hover:bg-blue-100"><a href="#">Dashboard</a></li>
+          <li class="p-4 hover:bg-blue-100"><a href="#">Manage Users</a></li>
+          <li class="p-4 hover:bg-blue-100"><a href="#">Manage Skills</a></li>
+          <li class="p-4 hover:bg-blue-100"><a href="#">Swap Requests</a></li>
+          <li class="p-4 hover:bg-blue-100"><a href="#">Feedback & Ratings</a></li>
+          <li class="p-4 hover:bg-blue-100"><a href="#">Reports</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="flex-1 p-8">
+      <h1 class="text-3xl font-semibold mb-6">Admin Dashboard</h1>
+
+      <!-- 🟦 Dynamic User List Table -->
+      <div class="bg-white p-6 rounded shadow mb-8">
+        <h3 class="text-xl font-semibold mb-4">All Users</h3>
+        <div id="loading" class="text-gray-600">Loading...</div>
+        <table id="userTable" class="w-full text-left table-auto hidden">
+          <thead>
+            <tr class="text-gray-600 border-b">
+              <th class="pb-2">Username</th>
+              <th>Name</th>
+              <th>Location</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="userBody"></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // ✅ Firebase Config
+    const firebaseConfig = {
+      apiKey: "AIzaSyCAeSqQIkl2Ycb5tCCFmWAsFyCxsbUZJ2A",
+      authDomain: "skillswap-web-6f8c0.firebaseapp.com",
+      databaseURL: "https://skillswap-web-6f8c0-default-rtdb.firebaseio.com",
+      projectId: "skillswap-web-6f8c0",
+      storageBucket: "skillswap-web-6f8c0.appspot.com",
+      messagingSenderId: "19588089941",
+      appId: "1:19588089941:web:9ffbd01516367ac23b2cdc"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
+    // 🟦 Load and Render All Users
+    function loadUsers() {
+      db.ref("users").once("value").then(snapshot => {
+        const users = snapshot.val();
+        const userBody = document.getElementById("userBody");
+        userBody.innerHTML = "";
+        let hasUsers = false;
+
+        for (let username in users) {
+          const user = users[username];
+          const isBanned = user.banned === true;
+
+          const row = `
+            <tr class="border-b hover:bg-gray-50">
+              <td>${username}</td>
+              <td>${user.name || "—"}</td>
+              <td>${user.location || "—"}</td>
+              <td class="${isBanned ? 'text-red-500' : 'text-green-600'}">${isBanned ? "Banned" : "Active"}</td>
+              <td>
+                <button onclick="toggleBan('${username}', ${isBanned})" 
+                        class="${isBanned ? 'text-green-600' : 'text-red-600'} hover:underline">
+                  ${isBanned ? "Unban" : "Ban"}
+                </button>
+              </td>
+            </tr>
+          `;
+          userBody.innerHTML += row;
+          hasUsers = true;
+        }
+
+        document.getElementById("loading").style.display = "none";
+        if (hasUsers) document.getElementById("userTable").classList.remove("hidden");
+      });
+    }
+
+    // 🟥 Toggle Ban / Unban
+    function toggleBan(username, isCurrentlyBanned) {
+      db.ref("users/" + username).update({
+        banned: !isCurrentlyBanned
+      }).then(() => {
+        alert(`User ${username} has been ${!isCurrentlyBanned ? "banned" : "unbanned"}`);
+        loadUsers();
+      });
+    }
+
+    window.onload = loadUsers;
+  </script>
+</body>
+</html>

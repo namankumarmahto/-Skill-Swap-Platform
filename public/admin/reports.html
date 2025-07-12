@@ -1,0 +1,63 @@
+<!-- reports.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reports | Skill Swap Admin</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+  <div class="flex min-h-screen">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-white shadow-md">
+      <div class="p-6 text-2xl font-bold text-blue-600">Skill Swap Admin</div>
+      <nav class="mt-6">
+        <ul>
+          <li class="p-4 hover:bg-blue-100"><a href="dashboard.html">Dashboard</a></li>
+          <li class="p-4 hover:bg-blue-100"><a href="users.html">Manage Users</a></li>
+          <li class="p-4 hover:bg-blue-100"><a href="skills.html">Manage Skills</a></li>
+          <li class="p-4 hover:bg-blue-100"><a href="swaps.html">Swap Requests</a></li>
+          <li class="p-4 hover:bg-blue-100"><a href="feedback.html">Feedback & Ratings</a></li>
+          <li class="p-4 bg-blue-100"><a href="reports.html">Reports</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-8">
+      <h1 class="text-3xl font-semibold mb-6">Reports & Analytics</h1>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+        <div class="bg-white p-6 rounded shadow">
+          <h2 class="text-lg font-semibold text-gray-700">Total Users</h2>
+          <p class="text-2xl font-bold mt-2">1,250</p>
+        </div>
+        <div class="bg-white p-6 rounded shadow">
+          <h2 class="text-lg font-semibold text-gray-700">Total Swaps</h2>
+          <p class="text-2xl font-bold mt-2">650</p>
+        </div>
+        <div class="bg-white p-6 rounded shadow">
+          <h2 class="text-lg font-semibold text-gray-700">Avg. Swap Rating</h2>
+          <p class="text-2xl font-bold mt-2">4.3 / 5</p>
+        </div>
+      </div>
+
+      <div class="bg-white p-6 rounded shadow">
+        <h2 class="text-xl font-semibold mb-4">Skill Popularity</h2>
+        <ul class="space-y-2">
+          <li class="flex justify-between">
+            <span>Photoshop</span><span>145 users</span>
+          </li>
+          <li class="flex justify-between">
+            <span>Excel</span><span>130 users</span>
+          </li>
+          <li class="flex justify-between">
+            <span>Web Design</span><span>118 users</span>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
