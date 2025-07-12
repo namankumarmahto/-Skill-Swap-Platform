@@ -1,5 +1,4 @@
-
-// Firebase config
+// ✅ Firebase config (same as before)
 const firebaseConfig = {
   apiKey: "AIzaSyCAeSqQIkl2Ycb5tCCFmWAsFyCxsbUZJ2A",
   authDomain: "skillswap-web-6f8c0.firebaseapp.com",
@@ -11,13 +10,13 @@ const firebaseConfig = {
   databaseURL: "https://skillswap-web-6f8c0-default-rtdb.firebaseio.com"
 };
 
-// Initialize Firebase
+// ✅ Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
 
-// Login logic
 document.addEventListener("DOMContentLoaded", () => {
   const loginForm = document.getElementById("login-form");
+  const message = document.getElementById("login-message");
 
   loginForm.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -26,28 +25,31 @@ document.addEventListener("DOMContentLoaded", () => {
     const password = document.getElementById("password").value;
 
     if (!username || !password) {
-      alert("Please enter both username and password.");
+      message.textContent = "Please enter both username and password.";
       return;
     }
 
+    // 🔍 Fetch user by username from Firebase
     const userRef = database.ref("users/" + username);
 
     userRef.get().then((snapshot) => {
       if (snapshot.exists()) {
         const user = snapshot.val();
         if (user.password === password) {
-          alert("✅ Login successful!");
-          // Redirect to dashboard or homepage
-          window.location.href = "dashboard.html"; // make this page if needed
+          // ✅ Save user to localStorage for profile page
+          localStorage.setItem("currentUser", JSON.stringify({ username, ...user }));
+          
+          // ✅ Redirect to home
+          window.location.href = "home.html";
         } else {
-          alert("❌ Incorrect password.");
+          message.textContent = "❌ Incorrect password.";
         }
       } else {
-        alert("❌ User does not exist.");
+        message.textContent = "❌ User does not exist.";
       }
     }).catch((error) => {
-      console.error("Login Error:", error);
-      alert("An error occurred: " + error.message);
+      console.error("Login error:", error);
+      message.textContent = "Error: " + error.message;
     });
   });
 });

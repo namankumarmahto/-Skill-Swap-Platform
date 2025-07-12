@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Firebase Manual Test</title>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+</head>
+<body>
+  <h1>Firebase Manual Test</h1>
+  <button onclick="sendData()">Send Test Data</button>
+  <p id="result"></p>
+
+  <script>
+    // Step 2: Firebase Config
+    const firebaseConfig = {
+      apiKey: "AIzaSyCAeSqQIkl2Ycb5tCCFmWAsFyCxsbUZJ2A",
+      authDomain: "skillswap-web-6f8c0.firebaseapp.com",
+      projectId: "skillswap-web-6f8c0",
+      storageBucket: "skillswap-web-6f8c0.firebasestorage.app",
+      messagingSenderId: "19588089941",
+      appId: "1:19588089941:web:9ffbd01516367ac23b2cdc",
+      measurementId: "G-33S3WFC345",
+      databaseURL: "https://skillswap-web-6f8c0-default-rtdb.firebaseio.com"
+    };
+
+    // Step 3: Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
+    // Step 4: Write data manually
+    function sendData() {
+      db.ref("manual_test").set({
+        name: "Naman",
+        message: "Firebase is working!"
+      })
+      .then(() => {
+        document.getElementById("result").innerText = "✅ Data sent to Firebase!";
+        console.log("✅ Data sent to Firebase!");
+      })
+      .catch((error) => {
+        document.getElementById("result").innerText = "❌ Error: " + error.message;
+        console.error("❌ Error:", error);
+      });
+    }
+  </script>
+</body>
+</html>

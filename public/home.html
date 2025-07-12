@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skill Swap Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Skill Swap</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="profile.html">Profile</a>
+        <a href="request-form.html">Request</a>
+        <a href="swap-requests.html">My Requests</a>
+        <a href="login.html" class="login-btn">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>Available Profiles</h2>
+
+    <div class="filter-search">
+      <select id="availability">
+        <option value="">Availability</option>
+        <option value="weekends">Weekends</option>
+        <option value="evenings">Evenings</option>
+        <option value="weekdays">Weekdays</option>
+      </select>
+      <input type="text" id="searchInput" placeholder="Search...">
+      <button onclick="searchUsers()">Search</button>
+    </div>
+
+    <div id="userList" class="user-list">
+      <!-- Dynamically injected user cards will appear here -->
+    </div>
+
+    <div class="pagination">
+      <span>&lt;</span>
+      <span class="active">1</span>
+      <span>2</span>
+      <span>3</span>
+      <span>4</span>
+      <span>5</span>
+      <span>&gt;</span>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Skill Swap Platform</p>
+  </footer>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

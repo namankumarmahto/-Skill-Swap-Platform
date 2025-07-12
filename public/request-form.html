@@ -2,35 +2,200 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Request Skill Swap - Skill Swap Platform</title>
+  <title>Edit Profile - Skill Swap Platform</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/profile.css">
+  <style>
+    body {
+      background: #f4f6fc;
+      font-family: 'Roboto', sans-serif;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: white;
+      padding: 20px 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar.container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: white;
+      margin-right: 20px;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .brand-title {
+      font-size: 1.6rem;
+      font-weight: bold;
+      margin-right: 20px;
+    }
+
+    .top-profile img.small-profile-pic {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 2px solid white;
+      object-fit: cover;
+    }
+
+    main.container.profile-main {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+      margin-bottom: 30px;
+      color: #2a2a2a;
+    }
+
+    .profile-form {
+      display: flex;
+      gap: 40px;
+    }
+
+    .form-left, .form-right {
+      flex: 1;
+    }
+
+    .form-left label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: 500;
+    }
+
+    .form-left input, .form-left select, .form-left textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+
+    .form-right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .large-profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #2575fc;
+    }
+
+    #photoUpload {
+      margin-top: 10px;
+    }
+
+    button[type="submit"] {
+      background: #2575fc;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button[type="submit"]:hover {
+      background: #1a56d2;
+    }
+
+    footer {
+      background: #222;
+      color: #fff;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 50px;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <div class="container">
-      <h1>Skill Swap Platform</h1>
-      <nav>
+    <div class="navbar container">
+      <nav class="nav-links">
+        <span class="brand-title">Skill Swap</span>
         <a href="index.html">Home</a>
-        <a href="profile.html">Profile</a>
-        <a href="swap-request.html">Requests</a>
-        <a href="login.html" class="login-btn">Login</a>
       </nav>
+      <div class="top-profile">
+        <img src="/assets/profile1.jpg" alt="Profile" class="small-profile-pic" id="nav-profile-pic">
+      </div>
     </div>
   </header>
 
-  <main class="container">
-    <h2>Request a Skill Swap</h2>
-    <form>
-      <input type="text" placeholder="Skill you offer" required><br><br>
-      <input type="text" placeholder="Skill you want" required><br><br>
-      <textarea placeholder="Additional details"></textarea><br><br>
-      <button type="submit">Send Request</button>
+  <main class="container profile-main">
+    <h2>Edit Profile</h2>
+    <form id="profile-form" class="profile-form">
+      <div class="form-left">
+        <label>Name</label>
+        <input type="text" id="name" value="Marc Demo" required>
+
+        <label>Email</label>
+        <input type="email" id="email" value="marc@example.com" disabled>
+
+        <label>Location</label>
+        <input type="text" id="location" value="New York, USA">
+
+        <label>Skills Offered</label>
+        <input type="text" id="skillsOffered" placeholder="e.g. Web Dev, Java" value="Game Design">
+
+        <label>Skills Wanted</label>
+        <input type="text" id="skillsWanted" placeholder="e.g. React, ML" value="Graphic Designer">
+
+        <label>Availability</label>
+        <input type="text" id="availability" placeholder="e.g. Weekends, Evenings" value="Weekends">
+
+        <label>Profile Visibility</label>
+        <select id="profileVisibility">
+          <option value="public" selected>Public</option>
+          <option value="private">Private</option>
+        </select>
+
+        <label>Bio</label>
+        <textarea id="bio" rows="4">Creative and passionate game designer looking to collaborate with a talented graphic designer.</textarea>
+
+        <button type="submit">Save Profile</button>
+      </div>
+
+      <div class="form-right">
+        <img id="profile-pic-preview" src="/assets/profile1.jpg" alt="Profile Picture" class="large-profile-pic">
+        <input type="file" id="photoUpload" accept="image/*">
+      </div>
     </form>
   </main>
 
   <footer>
     <p>&copy; 2025 Skill Swap Platform</p>
   </footer>
+
+  <script src="/js/profile.js"></script>
 </body>
 </html>
