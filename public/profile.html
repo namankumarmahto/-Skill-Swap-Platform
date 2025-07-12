@@ -2,28 +2,63 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Profile - Skill Swap Platform</title>
+  <title>Edit Profile - Skill Swap Platform</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/profile.css">
 </head>
 <body>
   <header>
-    <div class="container">
-      <h1>Skill Swap Platform</h1>
-      <nav>
+    <div class="navbar container">
+      <nav class="nav-links">
         <a href="index.html">Home</a>
-        <a href="profile.html">Profile</a>
-        <a href="swap-request.html">Requests</a>
-        <a href="login.html" class="login-btn">Login</a>
+        <a href="swap-requests.html">Swap Requests</a>
       </nav>
+      <div class="top-profile">
+        <img src="/assets/profile-placeholder.png" alt="Profile" class="small-profile-pic" id="nav-profile-pic">
+      </div>
     </div>
   </header>
 
-  <main class="container">
-    <h2>My Profile</h2>
-    <div id="profile-container">
-      <!-- loaded by profile.js -->
-    </div>
+  <main class="container profile-main">
+    <h2>Edit Profile</h2>
+    <form id="profile-form" class="profile-form">
+      <div class="form-left">
+        <label>Name</label>
+        <input type="text" id="name" required>
+
+        <label>Email</label>
+        <input type="email" id="email" disabled>
+
+        <label>Location</label>
+        <input type="text" id="location">
+
+        <label>Skills Offered</label>
+        <input type="text" id="skillsOffered" placeholder="e.g. Web Dev, Java">
+
+        <label>Skills Wanted</label>
+        <input type="text" id="skillsWanted" placeholder="e.g. React, ML">
+
+        <label>Availability</label>
+        <input type="text" id="availability" placeholder="e.g. Weekends, Evenings">
+
+        <label>Profile Visibility</label>
+        <select id="profileVisibility">
+          <option value="public">Public</option>
+          <option value="private">Private</option>
+        </select>
+
+        <label>Bio</label>
+        <textarea id="bio" rows="4"></textarea>
+
+        <button type="submit">Save Profile</button>
+      </div>
+
+      <div class="form-right">
+        <img id="profile-pic-preview" src="/assets/profile-placeholder.png" alt="Profile Picture" class="large-profile-pic">
+        <input type="file" id="photoUpload" accept="image/*">
+      </div>
+    </form>
   </main>
 
   <footer>
