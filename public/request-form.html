@@ -2,21 +2,35 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Request Swap</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/styles.css" />
+  <title>Request Skill Swap - Skill Swap Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="container">
-  <h1>Send Swap Request</h1>
-  <select>
-    <option>Choose offered skill</option>
-  </select>
-  <select>
-    <option>Choose wanted skill</option>
-  </select>
-  <textarea placeholder="Message"></textarea>
-  <button>Submit Request</button>
-</div>
+  <header>
+    <div class="container">
+      <h1>Skill Swap Platform</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="profile.html">Profile</a>
+        <a href="swap-request.html">Requests</a>
+        <a href="login.html" class="login-btn">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>Request a Skill Swap</h2>
+    <form>
+      <input type="text" placeholder="Skill you offer" required><br><br>
+      <input type="text" placeholder="Skill you want" required><br><br>
+      <textarea placeholder="Additional details"></textarea><br><br>
+      <button type="submit">Send Request</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Skill Swap Platform</p>
+  </footer>
 </body>
 </html>

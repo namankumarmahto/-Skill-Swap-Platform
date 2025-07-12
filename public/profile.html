@@ -2,18 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>My Profile</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/styles.css" />
+  <title>Profile - Skill Swap Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="container">
-  <h1>My Profile</h1>
-  <input type="text" placeholder="Name" />
-  <input type="text" placeholder="Location" />
-  <input type="text" placeholder="Skills Offered" />
-  <input type="text" placeholder="Skills Wanted" />
-  <button>Save Profile</button>
-</div>
+  <header>
+    <div class="container">
+      <h1>Skill Swap Platform</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="profile.html">Profile</a>
+        <a href="swap-request.html">Requests</a>
+        <a href="login.html" class="login-btn">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>My Profile</h2>
+    <div id="profile-container">
+      <!-- loaded by profile.js -->
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Skill Swap Platform</p>
+  </footer>
+
+  <script src="/js/profile.js"></script>
 </body>
 </html>

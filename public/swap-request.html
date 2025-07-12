@@ -2,19 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Swap Requests</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/styles.css" />
+  <title>My Swap Requests - Skill Swap Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="container">
-  <h1>Swap Requests</h1>
-  <div class="profile-card">
-    <h3>Marc Demo</h3>
-    <p>Status: Pending</p>
-    <button>Accept</button>
-    <button>Reject</button>
-  </div>
-</div>
+  <header>
+    <div class="container">
+      <h1>Skill Swap Platform</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="profile.html">Profile</a>
+        <a href="swap-request.html">Requests</a>
+        <a href="login.html" class="login-btn">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>My Skill Swap Requests</h2>
+    <div id="requests-container">
+      <!-- loaded by swap-request.js -->
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Skill Swap Platform</p>
+  </footer>
+
+  <script src="/js/swap-request.js"></script>
 </body>
 </html>
