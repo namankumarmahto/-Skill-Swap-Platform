@@ -1,0 +1,47 @@
+<!-- messages.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Messages | Skill Swap Admin</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+  <div class="flex min-h-screen">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-white shadow-md">
+      <div class="p-6 text-2xl font-bold text-blue-600">Skill Swap Admin</div>
+      <nav class="mt-6">
+        <ul>
+          <li class="p-4 hover:bg-blue-100"><a href="dashboard.html">Dashboard</a></li>
+          <li class="p-4 hover:bg-blue-100"><a href="users.html">Manage Users</a></li>
+          <li class="p-4 hover:bg-blue-100"><a href="skills.html">Manage Skills</a></li>
+          <li class="p-4 hover:bg-blue-100"><a href="swaps.html">Swap Requests</a></li>
+          <li class="p-4 hover:bg-blue-100"><a href="feedback.html">Feedback & Ratings</a></li>
+          <li class="p-4 hover:bg-blue-100"><a href="reports.html">Reports</a></li>
+          <li class="p-4 bg-blue-100"><a href="messages.html">Messages</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-8">
+      <h1 class="text-3xl font-semibold mb-6">User Messages</h1>
+
+      <div class="bg-white rounded shadow p-6 space-y-4">
+        <div class="border-b pb-4">
+          <p class="text-sm text-gray-600 mb-1"><strong>Jane Doe</strong> – janedoe@email.com</p>
+          <p>"I received a spam swap request from a user named Mike123."</p>
+          <button class="mt-2 text-sm text-blue-600 hover:underline">Mark as Resolved</button>
+        </div>
+        <div class="border-b pb-4">
+          <p class="text-sm text-gray-600 mb-1"><strong>Ali Khan</strong> – ali.k@example.com</p>
+          <p>"Can you help me change my profile visibility setting?"</p>
+          <button class="mt-2 text-sm text-blue-600 hover:underline">Reply</button>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

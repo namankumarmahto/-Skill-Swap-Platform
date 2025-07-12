@@ -1,0 +1,85 @@
+<!-- users.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manage Users | Skill Swap Admin</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+  <div class="flex min-h-screen">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-white shadow-md">
+      <div class="p-6 text-2xl font-bold text-blue-600">Skill Swap Admin</div>
+      <nav class="mt-6">
+        <ul>
+          <li class="p-4 hover:bg-blue-100"><a href="dashboard.html">Dashboard</a></li>
+          <li class="p-4 bg-blue-100"><a href="users.html">Manage Users</a></li>
+          <li class="p-4 hover:bg-blue-100"><a href="skills.html">Manage Skills</a></li>
+          <li class="p-4 hover:bg-blue-100"><a href="swaps.html">Swap Requests</a></li>
+          <li class="p-4 hover:bg-blue-100"><a href="feedback.html">Feedback & Ratings</a></li>
+          <li class="p-4 hover:bg-blue-100"><a href="reports.html">Reports</a></li>
+          <li class="p-4 hover:bg-blue-100"><a href="messages.html">Messages</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-8">
+      <h1 class="text-3xl font-semibold mb-6">Manage Users</h1>
+
+      <!-- Search bar -->
+      <div class="mb-4">
+        <input type="text" placeholder="Search by name or email..." class="w-full p-3 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+      </div>
+
+      <!-- User Table -->
+      <div class="bg-white rounded shadow p-6 overflow-x-auto">
+        <table class="w-full table-auto text-left">
+          <thead>
+            <tr class="text-gray-700 border-b">
+              <th class="pb-3">User ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Location</th>
+              <th>Public Profile</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b hover:bg-gray-50">
+              <td>#U101</td>
+              <td>Jane Doe</td>
+              <td>jane@example.com</td>
+              <td>New York</td>
+              <td>Yes</td>
+              <td class="text-green-600 font-medium">Active</td>
+              <td>
+                <button class="text-blue-600 hover:underline mr-2">View</button>
+                <button class="text-yellow-600 hover:underline mr-2">Deactivate</button>
+                <button class="text-red-600 hover:underline">Delete</button>
+              </td>
+            </tr>
+            <tr class="border-b hover:bg-gray-50">
+              <td>#U102</td>
+              <td>Ali Khan</td>
+              <td>ali@example.com</td>
+              <td>Lahore</td>
+              <td>No</td>
+              <td class="text-yellow-500 font-medium">Pending</td>
+              <td>
+                <button class="text-blue-600 hover:underline mr-2">View</button>
+                <button class="text-green-600 hover:underline mr-2">Activate</button>
+                <button class="text-red-600 hover:underline">Delete</button>
+              </td>
+            </tr>
+            <!-- More user rows -->
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
